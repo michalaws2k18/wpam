@@ -18,6 +18,7 @@ limitations under the License. -->
     <string name="hint_word">Imię i Nazwisko</string>
     <string name="hint_date">data zgonu</string>
     <string name="hint_relative">stopień pokrewieństwa</string>
+    <string name="hint_description">dodatkowy opis</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="add_word">Add word</string>

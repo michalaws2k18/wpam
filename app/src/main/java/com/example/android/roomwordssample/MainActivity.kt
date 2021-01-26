@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 //                        println(location.latitude)
 //                        println(location.longitude)
                                 // get latitude , longitude and other info from this
-                                val word = Word(reply, location.latitude, location.longitude)
+                                val word = Word(reply, location.latitude, location.longitude, "2016-05-23", "sasiad", "brak")
                                 wordViewModel.insert(word)
                             }
 

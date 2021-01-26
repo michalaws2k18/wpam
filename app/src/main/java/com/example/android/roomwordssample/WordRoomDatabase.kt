@@ -89,9 +89,9 @@ abstract class WordRoomDatabase : RoomDatabase() {
             // Not needed if you only populate on creation.
             wordDao.deleteAll()
 
-            var word = Word("Leszek K", latitude =53.289446, longitude = 22.306138 )
+            var word = Word("Leszek K", latitude =53.289446, longitude = 22.306138, "1997-11-24", "kuzyn", "niedotyczy" )
             wordDao.insert(word)
-            word = Word("Kaziemierz S", latitude =53.288968, longitude = 22.305623 )
+            word = Word("Kaziemierz S", latitude =53.288968, longitude = 22.305623, "2015-02-12", "wujek", "niedotyczy" )
             wordDao.insert(word)
         }
     }
