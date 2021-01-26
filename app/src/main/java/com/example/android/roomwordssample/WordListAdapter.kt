@@ -19,6 +19,7 @@ package com.example.android.roomwordssample
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -34,11 +35,15 @@ class WordListAdapter : ListAdapter<Word, WordViewHolder>(WORDS_COMPARATOR) {
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = getItem(position)
         holder.bind(current.word )
+        holder.buttonshowloc.setOnClickListener { 
+            println("Przyciks działa")
+        }
 
     }
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val wordItemView: TextView = itemView.findViewById(R.id.textView)
+        val wordItemView: TextView = itemView.findViewById(R.id.textView)
+        val buttonshowloc: Button =itemView.findViewById(R.id.lokalizacja)
 
         fun bind(text: String?) {
             wordItemView.text = text
