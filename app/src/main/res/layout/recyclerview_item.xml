@@ -24,7 +24,7 @@ limitations under the License. -->
         android:id="@+id/textView"
         style="@style/word_title"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="60dp"
         android:background="@android:color/holo_orange_light" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

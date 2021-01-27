@@ -35,7 +35,7 @@ class WordListAdapter : ListAdapter<Word, WordViewHolder>(WORDS_COMPARATOR) {
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.word+"\t\t"+current.data )
+        holder.bind(current.word+"\t\t"+current.data+"\n"+current.opis )
         holder.buttonshowloc.setOnClickListener { 
             println("Przyciks działa")
             val context=holder.itemView.context
