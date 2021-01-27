@@ -37,13 +37,21 @@ class WordListAdapter : ListAdapter<Word, WordViewHolder>(WORDS_COMPARATOR) {
         val current = getItem(position)
         holder.bind(current.word+"\t\t"+current.data+"\n"+current.opis )
         holder.buttonshowloc.setOnClickListener { 
-            println("Przyciks działa")
+            //println("Przyciks działa")
             val context=holder.itemView.context
             val intentMap= Intent(context,MapsActivity::class.java)
-            val latitude =-37.123
-            val longitude = 154.23232
             intentMap.putExtra("latitude",current.latitude)
             intentMap.putExtra("longitude",current.longitude)
+            intentMap.putExtra("places", false)
+            context.startActivity(intentMap)
+        }
+        holder.buttonsflow.setOnClickListener {
+            val context=holder.itemView.context
+            val intentMap= Intent(context,MapsActivity::class.java)
+
+            intentMap.putExtra("latitude",current.latitude)
+            intentMap.putExtra("longitude",current.longitude)
+            intentMap.putExtra("places", true)
             context.startActivity(intentMap)
         }
 
@@ -52,6 +60,7 @@ class WordListAdapter : ListAdapter<Word, WordViewHolder>(WORDS_COMPARATOR) {
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val wordItemView: TextView = itemView.findViewById(R.id.textView)
         val buttonshowloc: Button =itemView.findViewById(R.id.lokalizacja)
+        val buttonsflow: Button =itemView.findViewById(R.id.kwiaciarnie)
 
         fun bind(text: String?) {
             wordItemView.text = text

@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, intentData)
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
+            var stat=false
 
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
@@ -85,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                             if (location != null) {
 //                        println(location.latitude)
 //                        println(location.longitude)
+
                                 // get latitude , longitude and other info from this
                                 val word1= intentData?.extras?.getString("word").toString()
                                 val word2 = intentData?.extras?.getString("word2").toString()
@@ -92,9 +94,21 @@ class MainActivity : AppCompatActivity() {
                                 val word4=intentData?.extras?.getString("word4").toString()
                                 val word = Word(word1, location.latitude, location.longitude,word2,word3, word4)
                                 wordViewModel.insert(word)
+                                stat=true
                             }
 
                         }
+
+            if(stat!=true){
+                val latitude=53.2479169
+                val longitude=22.2973246
+                val word1= intentData?.extras?.getString("word").toString()
+                val word2 = intentData?.extras?.getString("word2").toString()
+                val word3 =intentData?.extras?.getString("word3").toString()
+                val word4=intentData?.extras?.getString("word4").toString()
+                val word = Word(word1, latitude, longitude,word2,word3, word4)
+                wordViewModel.insert(word)
+            }
 
         } else {
             Toast.makeText(
