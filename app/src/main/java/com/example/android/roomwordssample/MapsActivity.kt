@@ -16,7 +16,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        title = "Where is the grave? Map"
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
@@ -34,10 +33,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val latitude=intent.extras?.getDouble("latitude")
+
+        val latitude =intent.extras?.getDouble("latitude")
         val longitude=intent.extras?.getDouble("longitude")
         // Add a marker in Sydney and move the camera
-        val place = LatLng(45.7, 67.4)
+        val place = LatLng(latitude!!, longitude!!)
         mMap.addMarker(MarkerOptions().position(place).title("Marker in Place"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(place))
     }

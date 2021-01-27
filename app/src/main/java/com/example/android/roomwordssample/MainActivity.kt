@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, intentData)
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            intentData?.getStringExtra(NewWordActivity.EXTRA_REPLY)?.let { reply ->
 
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
@@ -87,12 +86,16 @@ class MainActivity : AppCompatActivity() {
 //                        println(location.latitude)
 //                        println(location.longitude)
                                 // get latitude , longitude and other info from this
-                                val word = Word(reply, location.latitude, location.longitude, "2016-05-23", "sasiad", "brak")
+                                val word1= intentData?.extras?.getString("word").toString()
+                                val word2 = intentData?.extras?.getString("word2").toString()
+                                val word3 =intentData?.extras?.getString("word3").toString()
+                                val word4=intentData?.extras?.getString("word4").toString()
+                                val word = Word(word1, location.latitude, location.longitude,word2,word3, word4)
                                 wordViewModel.insert(word)
                             }
 
                         }
-            }
+
         } else {
             Toast.makeText(
                     applicationContext,

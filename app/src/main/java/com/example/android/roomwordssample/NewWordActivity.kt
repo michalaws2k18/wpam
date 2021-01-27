@@ -35,7 +35,9 @@ class NewWordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_word)
         title="Add New Grave Location"
         val editWordView = findViewById<EditText>(R.id.edit_word)
-
+        val editWord2View = findViewById<EditText>(R.id.edit_word2)
+        val editWord3View = findViewById<EditText>(R.id.edit_word3)
+        val editWord4View = findViewById<EditText>(R.id.edit_word4)
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
@@ -43,7 +45,14 @@ class NewWordActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 val word = editWordView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, word)
+                val word2=editWord2View.text.toString()
+                val word3 =editWord3View.text.toString()
+                val word4=editWord4View.text.toString()
+
+                replyIntent.putExtra("word", word)
+                replyIntent.putExtra("word2", word2)
+                replyIntent.putExtra("word3", word3)
+                replyIntent.putExtra("word4", word4)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
