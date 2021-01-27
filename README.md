@@ -1,3 +1,3 @@
 # wpam
-Aplikacja "Gdzie jest grób?" na przedmiot WPAM
-Załaczam także prezentacje
+Aplikacja "Gdzie jest grób?" na przedmiot WPAM.\n
+Załaczam także prezentacje w pliku pptx
