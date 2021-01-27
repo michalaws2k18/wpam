@@ -16,6 +16,7 @@
 
 package com.example.android.roomwordssample
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,13 @@ class WordListAdapter : ListAdapter<Word, WordViewHolder>(WORDS_COMPARATOR) {
         holder.bind(current.word )
         holder.buttonshowloc.setOnClickListener { 
             println("Przyciks działa")
+            val context=holder.itemView.context
+            val intentMap= Intent(context,MapsActivity::class.java)
+            val latitude =-37.123
+            val longitude = 154.23232
+            intentMap.putExtra("latitude",current.latitude)
+            intentMap.putExtra("longitude",current.longitude)
+            context.startActivity(intentMap)
         }
 
     }

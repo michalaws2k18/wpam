@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 
 <resources>
-    <string name="app_name">RoomWordsSample</string>
+    <string name="app_name">Where is the grave?</string>
     <string name="action_settings">Settings</string>
     <string name="hint_word">Imię i Nazwisko</string>
     <string name="hint_date">data zgonu</string>
